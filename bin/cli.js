@@ -1,17 +1,13 @@
 #! /usr/bin/env node
 const program = require("commander");
-const chalk = require("chalk");
 
 program
   .command("start <hook-name>")
   .description("start a transform task")
-  .option("-i,--input", "file path of mixin")
-  .option("-o,--out", "output path of hook")
+  .option("-i,--input <path-name>", "file path of mixin")
+  .option("-o,--output <path-name>", "output path of hook")
   .option("-f, --force", "overwrite target directory if it exist")
-  .action((name, options) => {
-    const { start } = require("../lib");
-    start(name, options);
-  });
+  .action((name, options) => require("../lib").start(name, options));
 
 program
   // 配置版本号信息
