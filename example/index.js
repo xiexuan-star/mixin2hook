@@ -9,7 +9,7 @@ export default {
   mixins: [validate, formEvent, formCommom, boundDate],
   components: {},
   data() {
-    return {};
+    return { rowData: {} };
   },
   inject: {
     formTable: {
@@ -254,5 +254,18 @@ export default {
       });
     }
   },
-  watch: {}
+  watch: {
+    isDetail(value) {
+      console.log(value);
+    },
+    async rowData(value) {
+      await console.log(value);
+    },
+    hasErr: {
+      async handler(value) {
+        console.log(value);
+      },
+      deep: true
+    }
+  }
 };
