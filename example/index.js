@@ -98,8 +98,8 @@ export default {
     }
   },
   methods: {
-    hanldegetUniqueKey(id) {
-      return this.cacheUniqueKey[id];
+    async hanldegetUniqueKey(id) {
+      await (this.cacheUniqueKey[id] + this.hasErr);
     },
     handleSysParams(str) {
       // let sysData = this.userInfo.map.sysParams;
